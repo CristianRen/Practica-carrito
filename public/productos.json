@@ -1,0 +1,36 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Camionero",
+            "descripcion": "Camiseta de algodÃ³n de manga corta",
+            "precio": 19.99,
+            "categoria": "Ropa",
+            "imagen": "https://pngimg.com/d/github_PNG28.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Zapatos",
+            "descripcion": "Zapatos de cuero negro para hombres",
+            "precio": 59.99,
+            "categoria": "Calzado",
+            "imagen": "https://www.gef.co/dx/api/dam/custom/2022/gef/es-co/imagenes/hombres/zapatos/luan_zapatos/566x715/zapatos-hombre-luan-zapatos-blanco-994-frente-gef.jpg"
+        },
+        {
+            "id": 21,
+            "nombre": "Pantalones",
+            "descripcion": "Pantalones vaqueros ajustados",
+            "precio": 39.99,
+            "categoria": "Ropa",
+            "imagen": "https://m.media-amazon.com/images/I/61QwRElwjAL.jpg"
+        },
+        {
+            "id": 22,
+            "nombre": "Gafas de sol",
+            "descripcion": "Gafas de sol con montura de metal",
+            "precio": 29.99,
+            "categoria": "Accesorios",
+            "imagen": "https://http2.mlstatic.com/D_NQ_NP_923357-MCO28543557774_102018-O.jpg"
+        }
+    ]
+}
