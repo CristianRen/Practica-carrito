@@ -1,12 +1,12 @@
 import { createContext } from "react";
 
-const carritoContext = createContext("producto 0");
+const CarritoContext = createContext("producto 0");
 
-export function carritoProvider({ children }) {
+export function CarritoProvider({ children }) {
   return (
-    <carritoContext.Provider value="Está es una información de ambito global con el fin de  poder acceder a esta desde cualquier parte de mi página">
+    <CarritoContext.Provider value="Está es una información de ambito global con el fin de  poder acceder a esta desde cualquier parte de mi página">
       {children}
-    </carritoContext.Provider>
+    </CarritoContext.Provider>
   );
 }
-export default carritoContext;
+export default CarritoContext;

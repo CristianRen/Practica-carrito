@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Alert } from "flowbite-react";
 import { ProductoCard } from "./components/productoCars";
 import { AlertaExito } from "../components/alertas";
 import { Layout } from "../layouts/layout";
+import CarritoContext from "../contexts/carritoContexts";
 
 export default function Productos() {
   const [productos, actualizarProductos] = useState(null);
   const [alerta, actualizarAlerta] = useState(false);
+  const valorDelContexto = useContext(CarritoContext);  
+
   useEffect(() => {
     async function llamarProductos() {
       const solicitud = await fetch("./productos.json");
@@ -23,27 +26,27 @@ export default function Productos() {
   }
   return (
     <Layout>
-    <div className="text-center">
-      {alerta ? (
-        <AlertaExito mensaje="Se ha enviado el producto al carrito"></AlertaExito>
-      ) : (
-        <></>
-      )}
-      <div className="flex flex-wrap justify-center ">
-        {productos ? (
-          productos.map((producto) => {
-            return (
-              <ProductoCard
-                producto={producto}
-                agregarAlCarrito={agregarAlCarrito}
-              ></ProductoCard>
-            );
-          })
+      <div className="text-center">
+        {alerta ? (
+          <AlertaExito mensaje={valorDelContexto}></AlertaExito>
         ) : (
           <></>
         )}
+        <div className="flex flex-wrap justify-center ">
+          {productos ? (
+            productos.map((producto) => {
+              return (
+                <ProductoCard
+                  producto={producto}
+                  agregarAlCarrito={agregarAlCarrito}
+                ></ProductoCard>
+              );
+            })
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
-    </div>
     </Layout>
   );
 }
