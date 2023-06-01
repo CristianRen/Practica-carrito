@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Alert } from "flowbite-react";
 import { ProductoCard } from "./components/productoCars";
 import { AlertaExito } from "../components/alertas";
+import { Layout } from "../layouts/layout";
 
 export default function Productos() {
   const [productos, actualizarProductos] = useState(null);
@@ -21,6 +22,7 @@ export default function Productos() {
     actualizarAlerta(true);
   }
   return (
+    <Layout>
     <div className="text-center">
       {alerta ? (
         <AlertaExito mensaje="Se ha enviado el producto al carrito"></AlertaExito>
@@ -42,5 +44,6 @@ export default function Productos() {
         )}
       </div>
     </div>
+    </Layout>
   );
 }
