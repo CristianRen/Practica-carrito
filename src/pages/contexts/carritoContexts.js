@@ -1,10 +1,20 @@
-import { createContext } from "react";
+import { createContext, useState} from "react";
 
-const CarritoContext = createContext("producto 0");
+
+const CarritoContext = createContext([]);
 
 export function CarritoProvider({ children }) {
+  const [carritoProductosGlobal, actualizarCarrito] = useState([])
+
+  function agregarAlCarritoGlobal(producto){
+      actualizarCarrito ((productosPrevios)=>
+        [...productosPrevios , producto]
+      )
+  }
+
+
   return (
-    <CarritoContext.Provider value="Está es una información de ambito global con el fin de  poder acceder a esta desde cualquier parte de mi página">
+    <CarritoContext.Provider value={{agregarAlCarritoGlobal, carritoProductosGlobal}}>
       {children}
     </CarritoContext.Provider>
   );

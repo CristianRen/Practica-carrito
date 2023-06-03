@@ -8,7 +8,9 @@ import CarritoContext from "../contexts/carritoContexts";
 export default function Productos() {
   const [productos, actualizarProductos] = useState(null);
   const [alerta, actualizarAlerta] = useState(false);
-  const valorDelContexto = useContext(CarritoContext);  
+  const { agregarAlCarritoGlobal, carritoProductosGlobal } = useContext(CarritoContext);
+
+  // const valorDelContexto = useContext(CarritoContext);
 
   useEffect(() => {
     async function llamarProductos() {
@@ -21,22 +23,27 @@ export default function Productos() {
     console.log(productos);
   }, []);
 
-  function agregarAlCarrito() {
+  function agregarAlCarrito(producto) {
+  
+    agregarAlCarritoGlobal(producto);
     actualizarAlerta(true);
+    console.log(carritoProductosGlobal);
+
   }
   return (
     <Layout>
-      <div className="text-center">
+      <div className="text-center ">
         {alerta ? (
-          <AlertaExito mensaje={valorDelContexto}></AlertaExito>
+          <AlertaExito mensaje="Agregado al carrito"></AlertaExito>
         ) : (
           <></>
         )}
-        <div className="flex flex-wrap justify-center ">
+        <div className="flex flex-wrap justify-center space-x-10">
           {productos ? (
-            productos.map((producto) => {
+            productos.map((producto, index) => {
               return (
                 <ProductoCard
+                  key={index}
                   producto={producto}
                   agregarAlCarrito={agregarAlCarrito}
                 ></ProductoCard>
